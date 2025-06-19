@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Equipos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 8px 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Equipos Registrados</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Eslogan</th>
+        <th>Técnico</th>
+        <th>País</th>
+        <th>Ciudad</th>
+        <th>Categoría</th>
+        <th>Goles</th>
+        <th>Partidos Jugados</th>
+        <th>Partidos Ganados</th>
+        <th>Campeonatos</th>
+        <th>Expulsiones</th>
+        <th>Empates</th>
+        <th>Acciones</th>
+    </tr>
+    <tr th:each="equipo : ${listaEquipos}">
+        <td th:text="${equipo.id}"></td>
+        <td th:text="${equipo.nombre}"></td>
+        <td th:text="${equipo.eslogan}"></td>
+        <td th:text="${equipo.tecnico}"></td>
+        <td th:text="${equipo.pais}"></td>
+        <td th:text="${equipo.ciudad}"></td>
+        <td th:text="${equipo.categoria}"></td>
+        <td th:text="${equipo.numGoles}"></td>
+        <td th:text="${equipo.numPartidosJugados}"></td>
+        <td th:text="${equipo.numPartidosGanados}"></td>
+        <td th:text="${equipo.numCampeonatos}"></td>
+        <td th:text="${equipo.numExpulsiones}"></td>
+        <td th:text="${equipo.numEmpates}"></td>
+        <td>
+            <a th:href="@{'/eliminar/' + ${equipo.id}}">Eliminar</a> |
+            <a th:href="@{'/editar/' + ${equipo.id}}">Editar</a>
+        </td>
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Equipo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        form {
+            width: 400px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 6px;
+            margin-top: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 15px;
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+    </style>
+
+</head>
+<body>
+<h1>Registro de Equipos de Fútbol</h1>
+<p><a th:href="@{/listar}">Ver lista de equipos registrados</a></p>
+<p><a th:href="@{/formulario}">Registrar nuevo equipo</a></p>
+
+
+<form th:action="@{/guardar}" th:object="${equipo}" method="post">
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required /><br/>
+
+    <label>Eslogan:</label>
+    <input type="text" th:field="*{eslogan}" /><br/>
+
+    <label>Técnico:</label>
+    <input type="text" th:field="*{tecnico}" /><br/>
+
+    <label>País:</label>
+    <input type="text" th:field="*{pais}" /><br/>
+
+    <label>Ciudad:</label>
+    <input type="text" th:field="*{ciudad}" /><br/>
+
+    <label>Categoría:</label>
+    <input type="text" th:field="*{categoria}" /><br/>
+
+    <label>Goles:</label>
+    <input type="number" th:field="*{numGoles}" /><br/>
+
+    <label>Partidos Jugados:</label>
+    <input type="number" th:field="*{numPartidosJugados}" /><br/>
+
+    <label>Partidos Ganados:</label>
+    <input type="number" th:field="*{numPartidosGanados}" /><br/>
+
+    <label>Campeonatos:</label>
+    <input type="number" th:field="*{numCampeonatos}" /><br/>
+
+    <label>Expulsiones:</label>
+    <input type="number" th:field="*{numExpulsiones}" /><br/>
+
+    <label>Empates:</label>
+    <input type="number" th:field="*{numEmpates}" /><br/><br/>
+
+    <button type="submit">Guardar Equipo</button>
+</form>
+</body>
+</html>
