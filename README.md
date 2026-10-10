@@ -34,9 +34,7 @@ Creá una base de datos llamada: equiposdb
 
 Ejecutá este script SQL:
 
-sql
-Copiar
-Editar
+
 CREATE TABLE equipos_futbol (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(100),
